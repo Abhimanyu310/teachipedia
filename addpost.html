@@ -1,0 +1,124 @@
+<div class="container">
+    <div class="row">
+		<form method=post action=addpost.php?a=1>
+        <div class="col-lg-8">
+		
+            
+                <fieldset class="form-group">
+                    <label for="post_topic">Topic <span class="post_topic-validation validation-error"></span></label>
+                    <input type="text" name=post_topic id=post_topic class="form-control" placeholder="Enter topic for your post" onkeyup=validate()>
+                    <small class="text-muted">You cannot change the name of your post later. So be specific</small>
+                </fieldset>
+				
+				<fieldset class="form-group">
+    				<label for="post_data">Enter content for your post</label>
+    				<textarea class="form-control" name=post_data id="post_data" rows="15"></textarea>
+ 				
+				</fieldset>
+
+            
+		</div>
+
+		<div class="col-md-4">
+
+
+
+
+
+<div class="form-group">
+									<label>Category</label>
+									<div class="radio">
+										<label>
+											<input type="radio" name="post_category" id="post_category" value="Science" checked>Science
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="post_category" id="post_category" value="Geography">Geography
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="post_category" id="post_category" value="History">History
+										</label>
+									</div>
+									<div class="radio">
+										<label>
+											<input type="radio" name="post_category" id="post_category" value="Literature">Literature
+										</label>
+									</div>
+									<div class="radio">
+                                        <label>
+                                            <input type="radio" name="post_category" id="post_category" value="Computer Science">Computer Science
+                                        </label>
+                                    </div>
+									<div class="radio">
+                                        <label>
+                                            <input type="radio" name="post_category" id="post_category" value="Miscellaneous">Miscellaneous
+                                        </label>
+                                    </div>
+								</div>
+
+				<button type="submit" name=submit id=submit class="btn btn-primary" disabled="disabled">Post now</button>
+
+
+
+
+
+
+		</div>
+			</form>
+        
+    </div>
+</div>
+
+
+<script>
+//check user input
+    function validate() {
+        
+        var valid = true;
+        valid = checkEmpty($("#post_topic"));
+        $("#submit").attr("disabled",true);
+        if(valid) {
+            $("#submit").attr("disabled",false);
+        }   
+    }
+    function checkEmpty(obj) {
+        var name = $(obj).attr("name");
+        $("."+name+"-validation").html(""); 
+        $(obj).css("border","");
+        if($(obj).val() == "") {
+            $(obj).css("border","#FF0000 1px solid");
+            $("."+name+"-validation").html("Required");
+            $("."+name+"-validation").css("color","red");
+            return false;
+        }
+        
+        return true;    
+    }
+</script>
+
+
+
+
+<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script>
+        tinymce.init({
+            selector: "textarea",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+        });
+</script>
+
+
+
+
+
+
+
+
