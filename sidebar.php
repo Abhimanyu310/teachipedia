@@ -32,7 +32,8 @@ function showResult(str) {
     xmlhttp.onreadystatechange=function() {
         if (xmlhttp.readyState==4 && xmlhttp.status==200) {
             document.getElementById('livesearch').innerHTML=xmlhttp.responseText;
-            document.getElementById('livesearch').style.border='none';
+
+            $('#livesearch').css({display:'block'});
         
         }
     }
@@ -62,7 +63,7 @@ function showResult(str) {
                         </span>
                     
                     </div>
-                    <div id="livesearch" style="height:20vh;overflow:auto;"></div>
+                    <div id="livesearch" style="padding:10px;width:100%;height:100%;margin:0 auto;overflow:auto;display:none"></div>
                    
                 </div>
 
