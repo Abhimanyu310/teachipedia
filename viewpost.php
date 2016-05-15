@@ -86,6 +86,10 @@ echo '
   fjs.parentNode.insertBefore(js, fjs);
 }(document, \'script\', \'facebook-jssdk\'));</script>
 
+
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
 <div class="container">
 
         <div class="row">
@@ -129,9 +133,27 @@ if(isset($_SESSION['authenticated'])){
                 
                 <p><span class="glyphicon glyphicon-time"></span> Last modified by '.$modified_by.' on '.$modified_at.'</p>
                 
-                <div class="fb-share-button" data-href="http://localhost/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version.'" data-layout="button_count" data-mobile-iframe="false"></div>
+                <hr>
                 
+                 <p> <a href="https://www.facebook.com/dialog/share?appId=641730879263211&href=http://localhost/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version.'" onclick="javascript:window.open(this.href,
+  \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="Share to Facebook"><img
+  src="http://www.randomgoat.com/images/facebook-tab.png" alt="Share on Google+"/></a>
+                
+                <a href="https://plus.google.com/share?url=http://localhost/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version.'" onclick="javascript:window.open(this.href,
+  \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="Share to Google+"><img
+  src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a></p>
+  
+  
 
+  
+  
+
+  
+  
+
+
+ 
+  
                 <hr>
 
 
