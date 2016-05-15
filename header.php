@@ -1,7 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Teachipedia</title>
+		<title>
+            Teachipedia
+
+        </title>
 
      <link href="css/bootstrap.min.css" rel="stylesheet">
 
