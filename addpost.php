@@ -51,7 +51,7 @@ if($a==1){
         mysqli_stmt_close($stmt);
     }
 
-	header("Location: /project/viewpost.php?p=$next_postid&v=1");
+	header("Location: viewpost.php?p=$next_postid&v=1");
 }
 
 

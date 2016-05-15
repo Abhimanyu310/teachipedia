@@ -63,7 +63,7 @@ function strip_user_data($html){
 function check_if_empty($a){
 	if(empty($a)){
 		
-		header("Location: /project/login.php");
+		header("Location: login.php");
 		exit;
 	}
 }
@@ -188,7 +188,7 @@ function authenticate($db,$postUser,$postPass){
 		$failed_attempts = failed_logins($db,$last_hour);
 		if($failed_attempts>5){
 
-			header("Location: /project/login.php");
+			header("Location: login.php");
 			exit;
 		}
 	}
@@ -216,16 +216,16 @@ function connect(&$db){  //connect to the db
     $mycnf="/etc/project-mysql.conf";
    // $mycnf="/etc/projectssl-mysql.conf";
 	//$mycnf="/etc/hw9-mysql.conf";
-    if(!file_exists($mycnf)){
+    /*if(!file_exists($mycnf)){
         echo "Error file not found: $mycnf";
-    }
+    }*/
 
-    $mysql_ini_array=parse_ini_file($mycnf);
-    $db_host=$mysql_ini_array["host"];
-    $db_user=$mysql_ini_array["user"];
-    $db_pass=$mysql_ini_array["pass"];
-    $db_port=$mysql_ini_array["port"];
-    $db_name=$mysql_ini_array["dbName"];
+//    $mysql_ini_array=parse_ini_file($mycnf);
+    $db_host="127.0.0.1";//$mysql_ini_array["host"];
+    $db_user="root";//$mysql_ini_array["user"];
+    $db_pass="silencer";//$mysql_ini_array["pass"];
+    $db_port="3306";//$mysql_ini_array["port"];
+    $db_name="project";//$mysql_ini_array["dbName"];
     $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name, $db_port);
 
     if(!$db) {
@@ -373,16 +373,16 @@ function check_timeout(){
 
 
 function error() { // logs out the user
-	header("Location: /project/error.php");	
+	header("Location: error.php");
 	exit;
 }
 
 function login() {
-	header("Location: /project/login.php");
+	header("Location: login.php");
 }
 
 function logout() { // logs out the user
-	header("Location: /project/logout.php");	
+	header("Location: logout.php");
 }
 
 

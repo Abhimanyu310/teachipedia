@@ -25,7 +25,7 @@ if($stmt=mysqli_prepare($db,$query)) {
 }
 
 //redirect to the post
-header("Location: /project/viewpost.php?p=$p&v=$v");
+header("Location: viewpost.php?p=$p&v=$v");
 
 
 ?>

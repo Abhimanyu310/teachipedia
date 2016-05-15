@@ -56,7 +56,7 @@ if($stmt=mysqli_prepare($db,$query)) {
 	while(mysqli_stmt_fetch($stmt)){
         $output.='
             <h2>
-                    <a href="/project/viewpost.php?p='.$postid.'&v='.$max_version.'">'.$title.'</a>
+                    <a href="viewpost.php?p='.$postid.'&v='.$max_version.'">'.$title.'</a>
                 </h2>
                 <p class="lead">
                     by '.$creator[intval($postid)].'
@@ -64,7 +64,7 @@ if($stmt=mysqli_prepare($db,$query)) {
                 
                
                 <p>'.substr(strip_tags($data),0,200).'</p>
-                <a class="btn btn-primary" href="/project/viewpost.php?p='.$postid.'&v='.$max_version.'">
+                <a class="btn btn-primary" href="viewpost.php?p='.$postid.'&v='.$max_version.'">
 					Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
                 <hr>

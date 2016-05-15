@@ -8,7 +8,7 @@ if(isset($_SESSION['url'])){
 	$url = $_SESSION['url']; // holds url for last page visited.
 }
 else{
-   	$url = "/project";
+   	$url = "index.php";
 }
 
 header("Location: $url");

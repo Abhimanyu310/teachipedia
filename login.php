@@ -6,7 +6,7 @@ include_once('header.php');
 <div class="container">
 	<div class="row">
     	<div class="col-lg-4 col-lg-offset-4">
-			<form method=post action=userlogin.php>
+			<form method=post action=userlogin.php enctype="multipart/form-data">
 			
 				<fieldset>
 					<legend>Please login to continue</legend>
@@ -20,7 +20,7 @@ include_once('header.php');
   				</fieldset>
 
 				<button type="submit" name=submit id=submit class="btn btn-primary" disabled="disabled">Login</button>
-				<small class="text-muted">Not a member yet? <a id=register href=/project/register.php>Register</a> now!</small>
+				<small class="text-muted">Not a member yet? <a id=register href=register.php>Register</a> now!</small>
 			</fieldset>
 			</form>
 

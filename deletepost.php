@@ -50,6 +50,6 @@ if($stmt=mysqli_prepare($db,$query)) {
     mysqli_stmt_close($stmt);
 }
 
-header("Location: /project");
+header("Location: index.php");
 
 ?>

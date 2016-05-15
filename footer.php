@@ -32,13 +32,13 @@
 				<h3>Teachi<span>Pedia</span></h3>
 
 				<p class="footer-links">
-					<a href="/project">Home</a>
+					<a href="index.php">Home</a>
 					·
-					<a href="/project/about.html">About</a>
+					<a href="about.html">About</a>
 					·
-					<a href="/project/faq.html">Faq</a>
+					<a href="faq.html">Faq</a>
 					·
-					<a href="/project/contact.html">Contact</a>
+					<a href="contact.html">Contact</a>
 				</p>
 
 				<p class="footer-company-name">Teachipedia &copy; 2016</p>

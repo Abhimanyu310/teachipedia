@@ -38,23 +38,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/project">Teachipedia</a>
+                <a class="navbar-brand" href="index.php">Teachipedia</a>
             </div>
           
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav" style="float:none;">
                     <li>
-                        <a href="/project/addpost.php">Add a post</a>
+                        <a href="addpost.php">Add a post</a>
                     </li>
                     <li>
-                        <a href="/project/lucky.php" title="View a random post">Feeling lucky</a>
+                        <a href="lucky.php" title="View a random post">Feeling lucky</a>
                     </li>
 
 					<li class="dropdown">
               			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More<span class="caret"></span></a>
               			<ul class="dropdown-menu">
-               				<li><a href="/project/about">About</a></li>
-                			<li><a href="/project/faq.php">FAQ</a></li>
+               				<li><a href="about.php">About</a></li>
+                			<li><a href="faq.php">FAQ</a></li>
                 			<li><a href="#contact">Contact</a></li>
                 
               			</ul>
@@ -67,13 +67,13 @@ if(isset($_SESSION['authenticated'])){
 
 
 echo "              <li class=logout id=logout style=\"float:right;\">
-                        <a  href=\"/project/logout.php\">Logout</a>
+                        <a  href=\"logout.php\">Logout</a>
                     </li>
 ";
 	if($_SESSION['admin']){
 
 			echo "<li class=admin id=admin style=\"float:right;\">
-                        <a  href=\"/project/admindashboard.php\">Admin Dashboard</a>
+                        <a  href=\"admindashboard.php\">Admin Dashboard</a>
                     </li>
 
 		";
@@ -86,7 +86,7 @@ echo "              <li class=login id=login style=\"float:right;\">
                         <a  href=\"login.php\">Login</a>
                     </li>
                     <li class=register id=register style=float:right;>
-                        <a href=\"/project/register.php\">Register</a>
+                        <a href=\"register.php\">Register</a>
                     </li>
                   
 ";}

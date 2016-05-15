@@ -20,7 +20,7 @@ if(!$_SESSION['admin']){
 
 
 
-header("Location: /project/admindashboard.php");
+header("Location: admindashboard.php");
 
 
 

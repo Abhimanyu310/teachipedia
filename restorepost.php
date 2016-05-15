@@ -25,7 +25,7 @@ if($stmt=mysqli_prepare($db,$query)) {
 
 if($_SESSION['user_level'] > 2){
 	if($_SESSION['userid'] != $creatorid){
-		header("Location: /project/error.php");
+		header("Location: error.php");
 		exit;
 	}
 }
@@ -63,6 +63,6 @@ if($stmt=mysqli_prepare($db,$query)) {
 }
 
 
-header("Location: /project/viewpost.php?p=$postid&v=$next_version");
+header("Location: viewpost.php?p=$postid&v=$next_version");
 
 ?>

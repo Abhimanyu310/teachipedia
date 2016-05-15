@@ -22,7 +22,7 @@ if($stmt=mysqli_prepare($db,$query)){
 }
 else{echo "ERROR";}
 
-header("Location: /project/login.php"); 
+header("Location: login.php");
 
 
 

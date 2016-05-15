@@ -30,7 +30,7 @@ echo '<div class="container">
         
         <div class="col-md-6 col-md-offset-3">
         <h4>User privileges</h4>
-		<form method=post action=/project/userprivileges.php>
+		<form method=post action=userprivileges.php>
         <div class="table-responsive">
 
                 

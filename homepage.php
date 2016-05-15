@@ -12,7 +12,7 @@ if($stmt=mysqli_prepare($db,$query)) {
     mysqli_stmt_execute($stmt);
     mysqli_stmt_bind_result($stmt,$postid,$max_version,$title,$data);
 	while(mysqli_stmt_fetch($stmt)){
-		echo "<a href='/project/viewpost.php?p=$postid&v=$max_version'>
+		echo "<a href='viewpost.php?p=$postid&v=$max_version'>
 			<div id='home-post-title".$postid."'>$title</div>
 	        <div id='home-post-data".$postid."'>".substr(htmlspecialchars($data),0,100)."</div>
 			</a><hr>

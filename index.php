@@ -177,7 +177,7 @@ echo '
 				<small>Teach Yourself</small>
 				</h1>
 ';
-include('recentposts.php');
+include 'recentposts.php';
 
 echo '</div>';
 

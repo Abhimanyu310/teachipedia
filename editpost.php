@@ -24,7 +24,7 @@ if($stmt=mysqli_prepare($db,$query)) {
 //check user privilege
 if($_SESSION['user_level'] > 2){
     if($_SESSION['userid'] != $creatorid){
-        header("Location: /project/error.php");
+        header("Location: error.php");
         exit;
     }
 }
@@ -62,7 +62,7 @@ if($a==2){
             mysqli_stmt_close($stmt);
         }
 */
-	header("Location: /project/viewpost.php?p=$p&v=$version");
+	header("Location: viewpost.php?p=$p&v=$version");
 
 }
 

@@ -12,7 +12,7 @@ $query="select postid,title,data,version from posts where postid=? and version=?
 $k=num_of_rows($db,"select postid,title,data,version from posts where postid=$p and version=$v");
 
 if($k == 0){
-    header("Location: /project/error.php");
+    header("Location: error.php");
     exit;
 }
 
@@ -94,20 +94,20 @@ echo '
 ';					
 //check user privileges before showing these functions
 if(isset($_SESSION['authenticated'])){
-	echo ' <a href="/project/viewposthistory.php?p='.$postid.'" class="btn btn-info">View Edit History</a>';
+	echo ' <a href="viewposthistory.php?p='.$postid.'" class="btn btn-info">View Edit History</a>';
 
 	if($_SESSION['userid']==$creatorid || $_SESSION['user_level']<3){
 
 					echo '				
-					<a href="/project/editpost.php?p='.$postid.'&v='.$version.'" class="btn btn-info">Edit Post</a>';
+					<a href="editpost.php?p='.$postid.'&v='.$version.'" class="btn btn-info">Edit Post</a>';
 					if ($version!=$max_version){
     					echo '
-						 <a href="/project/restorepost.php?p='.$postid.'&v='.$version.'" class="btn btn-info">Restore this version</a>';
+						 <a href="restorepost.php?p='.$postid.'&v='.$version.'" class="btn btn-info">Restore this version</a>';
 					}
 
 		if($_SESSION['admin']){
 			echo '              
-                    <a href="/project/deletepost.php?p='.$postid.'" class="btn btn-danger">Delete Post</a>';
+                    <a href="deletepost.php?p='.$postid.'" class="btn btn-danger">Delete Post</a>';
 		}
 	}
 }
@@ -153,7 +153,7 @@ echo '
 ';
 }
 else{
-echo '			<div class=well><h4>Please <a href=/project/login.php>login</a> to post comments</h4></div>
+echo '			<div class=well><h4>Please <a href=login.php>login</a> to post comments</h4></div>
 ';
 }
 
@@ -176,7 +176,7 @@ echo '
 
 
 if($_SESSION['admin']){
-echo '							<small><a href="/project/deletecomment.php?p='.$postid.'&c='.$commentid.'">Delete comment</a></small>';
+echo '							<small><a href="deletecomment.php?p='.$postid.'&c='.$commentid.'">Delete comment</a></small>';
 
 }
 

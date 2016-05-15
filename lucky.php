@@ -29,6 +29,6 @@ if($stmt=mysqli_prepare($db,$query)) {
 }
 
 
-header("Location: /project/viewpost.php?p=".$postids[$postid]."&v=$version");
+header("Location: viewpost.php?p=".$postids[$postid]."&v=$version");
 
 ?>
