@@ -41,6 +41,13 @@ if($stmt=mysqli_prepare($db,$query)) {
     mysqli_stmt_close($stmt);
 }
 
+//delete from version
+$query="delete from version where postid=?";
+if($stmt=mysqli_prepare($db,$query)) {
+    mysqli_stmt_bind_param($stmt,"s",$p);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
 
 //delete from urlname
 $query="delete from urlname where postid=?";

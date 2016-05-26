@@ -6,9 +6,9 @@ include_once('project-lib.php');
 include_once('header.php');
 connect($db);
 
-$query="select postid,title,data,version from posts where postid=? and version=?";
 
-//if no suck post, then error
+
+//if no such post, then error
 $k=num_of_rows($db,"select postid,title,data,version from posts where postid=$p and version=$v");
 
 if($k == 0){
@@ -16,7 +16,7 @@ if($k == 0){
     exit;
 }
 
-
+$query="select postid,title,data,version from posts where postid=? and version=?";
 if($stmt=mysqli_prepare($db,$query)){
 	mysqli_stmt_bind_param($stmt,"ss",$p,$v);
 	mysqli_stmt_execute($stmt);
@@ -124,7 +124,8 @@ if(isset($_SESSION['authenticated'])){
 		}
 	}
 }
-					
+$fb_share='https://www.facebook.com/dialog/share?appId=641730879263211&href=http://ec2-52-39-86-99.us-west-2.compute.amazonaws.com/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version;
+$google_share='https://plus.google.com/share?url=http://ec2-52-39-86-99.us-west-2.compute.amazonaws.com/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version;
 		echo '
                 </p>
 
@@ -135,13 +136,18 @@ if(isset($_SESSION['authenticated'])){
                 
                 <hr>
                 
-                 <p> <a href="https://www.facebook.com/dialog/share?appId=641730879263211&href=http://localhost/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version.'" onclick="javascript:window.open(this.href,
+                
+                 <p> <a href='.$fb_share.' onclick="javascript:window.open(this.href,
   \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="Share to Facebook"><img
   src="http://www.randomgoat.com/images/facebook-tab.png" alt="Share on Google+"/></a>
                 
-                <a href="https://plus.google.com/share?url=http://localhost/teachipedia/viewpost.php?p='.$postid.'&v='.$max_version.'" onclick="javascript:window.open(this.href,
+                <a href='.$google_share.' onclick="javascript:window.open(this.href,
   \'\', \'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600\');return false;" title="Share to Google+"><img
   src="https://www.gstatic.com/images/icons/gplus-32.png" alt="Share on Google+"/></a></p>
+
+                
+                
+
   
   
 
