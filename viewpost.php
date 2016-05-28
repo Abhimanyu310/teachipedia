@@ -9,40 +9,59 @@ connect($db);
 
 
 //if no such post, then error
-$k=num_of_rows($db,"select postid,title,data,version from posts where postid=$p and version=$v");
+$k=num_of_rows($db,"select max_version from version where postid=$p");
 
 if($k == 0){
     header("Location: error.php");
     exit;
 }
+if(!$v) {
 
-$query="select postid,title,data,version from posts where postid=? and version=?";
-if($stmt=mysqli_prepare($db,$query)){
-	mysqli_stmt_bind_param($stmt,"ss",$p,$v);
-	mysqli_stmt_execute($stmt);
-	mysqli_stmt_bind_result($stmt,$postid,$title,$data,$version);
-	while(mysqli_stmt_fetch($stmt)){
-		$postid=$postid;
-		$title=$title;
-		$data=$data;
-		$version=$version;
-	}
-	mysqli_stmt_close($stmt);
-}
-
-
-$query="select max(version) from posts where postid=?";
-if($stmt=mysqli_prepare($db,$query)) {
-    mysqli_stmt_bind_param($stmt,"s",$postid);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_bind_result($stmt,$max_version);
-    while(mysqli_stmt_fetch($stmt)){
-        $postid=$postid;
-        $max_version=$max_version;
+    $query = "select max_version from version where postid=$p";
+    if ($stmt = mysqli_prepare($db, $query)) {
+        mysqli_stmt_bind_param($stmt, "s", $p);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $version);
+        while (mysqli_stmt_fetch($stmt)) {
+            $v = $version;
+            $max_version=$version;
+        }
+        mysqli_stmt_close($stmt);
     }
-	mysqli_stmt_close($stmt);
 }
 
+
+
+
+
+$query = "select postid,title,data,version from posts where postid=? and version=?";
+if ($stmt = mysqli_prepare($db, $query)) {
+    mysqli_stmt_bind_param($stmt, "ss", $p, $v);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_bind_result($stmt, $postid, $title, $data, $version);
+    while (mysqli_stmt_fetch($stmt)) {
+        $postid = $postid;
+        $title = $title;
+        $data = $data;
+        $version = $version;
+    }
+    mysqli_stmt_close($stmt);
+}
+
+
+if ($v) {
+    $query = "select max(version) from posts where postid=?";
+    if ($stmt = mysqli_prepare($db, $query)) {
+        mysqli_stmt_bind_param($stmt, "s", $postid);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_bind_result($stmt, $max_version);
+        while (mysqli_stmt_fetch($stmt)) {
+            $postid = $postid;
+            $max_version = $max_version;
+        }
+        mysqli_stmt_close($stmt);
+    }
+}
 
 $query="select user.username,user.userid from posts,user where posts.creatorid=user.userid and postid=? and version=1";
 if($stmt=mysqli_prepare($db,$query)) {
