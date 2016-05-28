@@ -228,6 +228,7 @@ function connect(&$db){  //connect to the db
     $db_name=$mysql_ini_array["dbName"];
     $db = mysqli_connect($db_host, $db_user, $db_pass, $db_name, $db_port);
 
+
     if(!$db) {
         print "Error connecting to DB: " . mysqli_connect_error();
         exit;
