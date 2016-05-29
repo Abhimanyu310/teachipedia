@@ -55,6 +55,14 @@ if($a==2){
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     }
+
+    $query="update version set max_version=? where postid=?";
+    if($stmt=mysqli_prepare($db,$query)){
+        mysqli_stmt_bind_param($stmt,"ss",$version,$p);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
 /*    $query="update urlname set urllink=? where postid=?";
     if($stmt=mysqli_prepare($db,$query)){
             mysqli_stmt_bind_param($stmt,"ss",$edit_urllink,$p);

@@ -51,6 +51,13 @@ if($a==1){
         mysqli_stmt_close($stmt);
     }
 
+    $query="insert into version set postid=?, max_version=1";
+    if($stmt=mysqli_prepare($db,$query)) {
+        mysqli_stmt_bind_param($stmt,"s",$next_postid);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
 	header("Location: viewpost.php?p=$next_postid&v=1");
 }
 
