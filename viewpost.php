@@ -3,7 +3,7 @@ session_start();
 $_SESSION['url'] = $_SERVER['REQUEST_URI']; 
 
 include_once('project-lib.php');
-include_once('header.php');
+
 connect($db);
 
 
@@ -91,7 +91,20 @@ if($stmt=mysqli_prepare($db,$query)) {
 }
 
 
+include_once('head.php');
 
+echo '
+    <meta property="og:title" content="'.$title.'" >
+    <meta property="og:site_name" content="Teachipedia">
+    <meta property="og:url" content="http://ec2-52-39-86-99.us-west-2.compute.amazonaws.com/teachipedia/viewpost.php?p='.$postid.'" >
+    <meta property="og:description" content="'.substr(strip_tags($data),0,200).'" >
+    <meta property="fb:app_id" content="MYAPP" >
+    <meta property="og:type" content="article" >
+    <meta property="og:locale" content="en_US" >
+    ';
+
+
+include_once('body.php');
 
 
 echo '
@@ -261,7 +274,18 @@ echo "</div></div>";
 
 
 
+
+
+
+
+
 include_once('footer.php');
+
+
+
+
+
+
 
 ?>
 

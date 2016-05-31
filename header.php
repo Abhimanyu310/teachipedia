@@ -1,12 +1,20 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>
-            Teachipediaaa
 
-        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <title>Teachipedia</title>
+        
 
-     <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+
+       
+
+
+
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
    
     <link href="css/blog-home.css" rel="stylesheet">
