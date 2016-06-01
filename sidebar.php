@@ -99,6 +99,27 @@ function showResult(str) {
                     </div>
                   
                 </div>
+
+
+                <div class="thumbnail well well-sm">
+                    <h4>Stay Updated</h4>
+
+                    <p>Subscribe to our weekly emails and stay updated with all the latest posts!</p>
+
+                    <form action="" method="post" role="form">
+                        <div class="input-group">
+                      <span class="input-group-addon">
+                        <i class="fa fa-envelope"></i>
+                      </span>
+                            <input class="form-control" type="text" id="" name="" placeholder="your@email.com">
+                        </div>
+
+                        <input type="submit" value="Subscribe" class="btn btn-large btn-primary" />
+                    </form>
+                </div>
+
+
+
             </div>
       
 

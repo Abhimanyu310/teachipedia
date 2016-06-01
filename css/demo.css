@@ -87,4 +87,6 @@ header ul li{
 }
 
 
-
+input.btn-primary {
+	margin-top: 15px;
+}
