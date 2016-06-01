@@ -29,7 +29,8 @@ include_once('header.php');
 
 
                 <button type="submit" name=submit id=submit class="btn btn-primary" disabled="disabled">Register now</button>
-            </form>
+				<small class="text-muted">Already a member? Login<a id=register href=login.php> here</a></small>
+			</form>
 
         </div>
     </div>

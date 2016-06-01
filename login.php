@@ -2,10 +2,10 @@
  
 include_once('header.php');
 ?>
-
+<link href="css/sign-in-buttons.css" rel="stylesheet">
 <div class="container">
 	<div class="row">
-    	<div class="col-lg-4 col-lg-offset-4">
+    	<div class="col-lg-4 col-lg-offset-3">
 			<form method=post action=userlogin.php enctype="multipart/form-data">
 			
 				<fieldset>
@@ -23,8 +23,21 @@ include_once('header.php');
 				<small class="text-muted">Not a member yet? <a id=register href=register.php>Register</a> now!</small>
 			</fieldset>
 			</form>
-
+			<hr>
 		</div>
+
+
+		<div class="col-sm-4 col-sm-offset-1 social-buttons">
+			<h4>OR use the following</h4>
+
+			<a class="btn btn-block btn-social btn-facebook">
+				<i class="fa fa-facebook"></i> Sign in with Facebook
+			</a>
+			<a class="btn btn-block btn-social btn-google-plus">
+				<i class="fa fa-google-plus"></i> Sign in with Google
+			</a>
+		</div>
+
 	</div>
 </div>
 
