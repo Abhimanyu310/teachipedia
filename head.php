@@ -32,3 +32,5 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer></script>

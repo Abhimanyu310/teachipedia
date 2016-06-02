@@ -1,6 +1,60 @@
 <?php
- 
+session_start();
 include_once('header.php');
+require_once ('libraries/Google/autoload.php');
+
+
+$client = new Google_Client();
+$client->setAuthConfigFile('client_secret_teachipedia.json');
+$client->addScope("email");
+$client->addScope("profile");
+$client->setRedirectUri("http://localhost/teachipedia/login.php");
+
+$service = new Google_Service_Oauth2($client);
+
+if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {
+	$client->setAccessToken($_SESSION['access_token']);
+}
+
+if (isset($_REQUEST['logout'])) {
+	unset($_SESSION['access_token']);
+	$client->revokeToken();
+	header('Location: login.php');
+}
+
+
+if (isset($_GET['code'])) {
+	$client->authenticate($_GET['code']);
+	$_SESSION['access_token'] = $client->getAccessToken();
+	header('Location: login.php');
+	exit;
+}
+
+
+
+
+if ($client->getAccessToken()) {
+	error_log("User is logged in",0);
+	$user = $service->userinfo->get();
+	$_SESSION['access_token'] = $client->getAccessToken();
+	print_r($user);
+	/*CHECK USER EXISTS N ALL AND THEN LOGIN...MEANS SET SESSION FOR LOGIN AND THEN REDIRECT TO SESSION URL*/
+	if(isset($_SESSION['url'])){
+		$url = $_SESSION['url']; // holds url for last page visited.
+	}
+	else{
+		$url = "index.php";
+	}
+
+
+	header("Location: $url");
+
+} else {
+	$authUrl = $client->createAuthUrl();
+}
+
+
+
 ?>
 <link href="css/sign-in-buttons.css" rel="stylesheet">
 <div class="container">
@@ -30,10 +84,10 @@ include_once('header.php');
 		<div class="col-sm-4 col-sm-offset-1 social-buttons">
 			<h4>OR use the following</h4>
 
-			<a class="btn btn-block btn-social btn-facebook">
+			<a class="btn btn-block btn-social btn-facebook" href="">
 				<i class="fa fa-facebook"></i> Sign in with Facebook
 			</a>
-			<a class="btn btn-block btn-social btn-google-plus">
+			<a class="btn btn-block btn-social btn-google-plus" href="<?php echo $authUrl; ?>">
 				<i class="fa fa-google-plus"></i> Sign in with Google
 			</a>
 		</div>
